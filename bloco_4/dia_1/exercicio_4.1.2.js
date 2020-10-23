@@ -8,5 +8,5 @@ if (a > b) {
 } else {
     maior = b;
 }
-console.log(maior)
+console.log("O maior entre os dois números é: " + maior)
 //Fim exercício 2
