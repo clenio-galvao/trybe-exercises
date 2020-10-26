@@ -50,3 +50,11 @@ if (impar>0){
 } else {
     console.log(`nenhum valor ímpar encontrado`)
 }
+
+let menor = numbers[0]
+for (n=1; n<numbers.length; n++){
+    if (numbers[n]<menor){
+        menor = numbers[n]                
+    }
+}
+console.log("O menor valor é: " + menor)
