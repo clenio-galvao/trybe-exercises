@@ -1,11 +1,15 @@
 // Agora inverta o lado do triângulo.
 
 let n = 6;
-let imprimeLinha = [];
+let imprimeLinha = "";
 for (linha=1; linha<=n; linha += 1) {
-    for (coluna=1; coluna<=linha; coluna +=1) {
-        imprimeLinha = "x" + imprimeLinha;
-        console.log(imprimeLinha);    
+    for (coluna=n; coluna>=1; coluna -=1) {
+        if (linha<coluna){
+            imprimeLinha = imprimeLinha + " ";
+        } else {
+           imprimeLinha = imprimeLinha + "x";                  
+        }
     }
+    console.log(imprimeLinha);
     imprimeLinha = "";
 }
