@@ -74,7 +74,7 @@ console.log(maiorString(arrayTeste));
 
 Crie uma função que receba um array de inteiros e retorne o inteiro que mais se repete.
 Array de teste: [2, 3, 2, 5, 8, 2, 3];.
-Valor esperado no retorno da função: 2.*/
+Valor esperado no retorno da função: 2.
 
 let arrayTeste = [2, 3, 2, 5, 8, 2, 3];
 
@@ -99,5 +99,41 @@ function numRepeteMais(array){
     return repeteMais;
 }
 console.log(numRepeteMais(arrayTeste));
+
+Crie uma função que receba um número inteiro N e retorne o somatório de todos os números de 1 até N.
+Valor de teste: N = 5.
+Valor esperado no retorno da função: 1+2+3+4+5 = 15.
+let num = 7;
+
+function somaAteN (numero) {
+    let soma = 0;
+    for (let index = 1; index <= num; index += 1){
+        soma = soma + index;
+    }
+    return soma
+}
+console.log(somaAteN(num));
+
+Crie uma função que receba uma string word e outra string ending. Verifique se a string ending é o final da string word. Considere que a string ending sempre será menor que a string word.
+Valor de teste: "trybe" e "be"
+Valor esperado no retorno da função: true
+verificaFimPalavra("trybe", "be");
+Retorno esperado: true
+verificaFimPalavra("joaofernando", "fernan");
+Retorno esperado: false*/
+
+function verificaFimPalavra(nome, fim) {
+    let res = true;
+    let cont = nome.length-1;
+    for (let index = fim.length-1; index >= 0; index -= 1) {
+        if (nome[cont] !== fim[index]){
+            res = false;            
+        }
+        cont = cont - 1;
+    }    
+    return res;
+}
+console.log(verificaFimPalavra("trybe", "be"));
+console.log(verificaFimPalavra("joaofernando", "fernan"));
 
 
