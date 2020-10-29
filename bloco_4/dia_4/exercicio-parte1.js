@@ -47,3 +47,9 @@ for (let key in info) {
         } 
     }
 }
+let string = "akjdnb"
+let array = [];
+    for (let n = 0; n<string.length; n +=1) {
+        array.push(string[n]); 
+    }
+console.log(array);
