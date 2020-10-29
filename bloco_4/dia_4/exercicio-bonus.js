@@ -21,53 +21,36 @@ Copiar
 Que tal criar um objeto que associe cada letra a um numeral para fácil consulta?
 Atenção! Quando você tem um número pequeno à direita de um número grande, eles devem ser somados. Exemplo: XI = 10 + 1 = 11. No entanto, se o número pequeno está à esquerda de um número maior que ele, ele deve ser subtraído. Exemplo: IX = 10 - 1 = 9.*/
 
-let numeralRomano = {
-    I: 1,
-    V: 5,
-    X: 10,
-    L: 50,
-    C: 100,
-    D: 500,
-    M: 1000
-};
+// A versão anterior não estava indo, vi o Gabarito do exercício em https://app.betrybe.com/course/fundamentals/javascript/js-features/js-part-4-solutions e entendi como funciona. O meu erro era nõ criar um Array com os resultados para depois comparar os valores entre si. O gabarito estava com uns erros mas eu consegui corrigir.
 
-for (let key in numeralRomano) {
-    console.log(numeralRomano[key]);
-}
-
-let string = 'abc';
-
-console.log(string[1]);
-
-function retornaValorNumeralRomano (string){
-    //transformar string em array
-    let array = [];
-    for (let n = 0; n<string.length; n +=1) {
-        array.push(string[n]); 
+function Romanos(roma) {
+    let romanos = {
+      I: 1,
+      V: 5,
+      X: 10,
+      L: 50,
+      C: 100,
+      D: 500,
+      M: 1000,
+    };
+  
+    let arrayNumbers = [];
+    let result = 0;
+    let aux = 0;
+    for (let indice in roma) {
+      arrayNumbers[indice] = romanos[roma[indice]];
     }
-    let valorNumeralRomano = 0;
-    if (array.length>=2){        
-        
-            for (let key in array) {            
-                valorNumeralRomano += numeralRomano[array[key]];
-            }    
-            /*    
-            if (numeralRomano[anterior] < numeralRomano[atual]) {
-               valorNumeralRomano = valorNumeralRomano - numeralRomano[anterior];
-               valorNumeralRomano = valorNumeralRomano + numeralRomano[atual];
-            }
-            valorNumeralRomano = valorNumeralRomano + numeralRomano[atual];
-            else {
-               valorNumeralRomano = valorNumeralRomano + numeralRomano[atual];                
-            }         
-        }        
-    }    
+  
+    for (let indice in arrayNumbers) {
+        aux += 1;
+      if (arrayNumbers[indice] < arrayNumbers[aux]) {
+        result -= arrayNumbers[indice];
+      } else {
+        result += arrayNumbers[indice];
+      }
     }
-    else{
-        valorNumeralRomano = numeralRomano[string];*/
-        
-    }
-    return valorNumeralRomano;
-}
-let numeralInserido = "XI";
-console.log(retornaValorNumeralRomano(numeralInserido));
+  
+    return result;
+  }
+  
+  console.log(Romanos('DMDMXIV'));
