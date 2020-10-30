@@ -53,13 +53,14 @@
         */
         document.getElementById('p1').innerHTML = "Quero estar trabalhando para uma empresa no canadá";
 
-    function mudarCor (elemento) {
+    function mudarCor (elemento, cor) {
         let lista = document.getElementsByClassName(elemento);
-        lista[0].style.backgroundColor = 'rgb(76,164,109)';
+        lista[0].style.backgroundColor = cor;
     }
-    mudarCor ('main-content');
+    mudarCor ('main-content', 'rgb(76,164,109)');
+    mudarCor ('center-content', 'white');
 
-    
+
 
     </script>
   </body>
