@@ -65,6 +65,11 @@
     }
     mudarTexto ('h1');
 
+    function uperCase (tag, pos) {
+        let texto = document.getElementsByTagName(tag)[pos].textContent.toUpperCase();         
+        document.getElementsByTagName(tag)[pos].innerHTML = texto;
+    } 
+    uperCase ('p', '0');
 
     </script>
   </body>
