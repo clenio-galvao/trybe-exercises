@@ -71,6 +71,16 @@
     } 
     uperCase ('p', '0');
 
+    function pConsole (tag) {
+        let textos = document.getElementsByTagName(tag);
+        let textosConsole = [];
+        for (let i = 0; i<textos.length; i += 1) {
+            textosConsole[i] = textos[i].textContent;
+        }       
+        console.log(textosConsole);         
+    }
+    pConsole ('p');
+
     </script>
   </body>
 </html>
