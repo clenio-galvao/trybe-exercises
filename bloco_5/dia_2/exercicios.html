@@ -56,6 +56,7 @@
     </style>
   </head>
   <body>
+      
     <script>
         //Adicione a tag h1 com o texto Exercício 5.2 - JavaScript DOM como filho da tag body;
         let header = document.createElement('h1');
@@ -92,7 +93,11 @@
         mainContent.appendChild(div3);
         let rightContent = document.querySelector('.right-content');
 
-
+        //Adicione uma imagem com src configurado para o valor https://picsum.photos/200 e classe small-image. Esse elemento deve ser filho do div criado no passo 5;
+        let imagem = document.createElement('img');
+        imagem.className = "small-image";
+        imagem.innerHTML = "<img src=\"https://picsum.photos/200\" alt=\"imagem Picsum 200\">";
+        leftContent.appendChild(imagem);
 
     </script>
   </body>
