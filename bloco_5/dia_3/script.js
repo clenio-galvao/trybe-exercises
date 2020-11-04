@@ -28,7 +28,16 @@ function createDaysOfTheWeek() {
     if ((cadaDia == 4) || (cadaDia == 11) || (cadaDia == 18) || (cadaDia == 25)) {
         cadaEspaco.className = cadaEspaco.className + " friday";
     }
-    
     daysLocal.appendChild(cadaEspaco);
   }
+
+  let buttonLocal = document.querySelector(".buttons-container");
+
+  function feriados (){
+      let botaoFeriados = document.createElement("button");
+      botaoFeriados.id = "btn-holiday";
+      botaoFeriados.innerHTML = "Feriados"; 
+      buttonLocal.appendChild(botaoFeriados);    
+  }
+  feriados();
 
