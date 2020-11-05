@@ -23,7 +23,7 @@ function createDaysOfTheWeek() {
     cadaEspaco.innerHTML = cadaDia;
     cadaEspaco.className = "day";
     if ((cadaDia == 24) || (cadaDia == 25) || (cadaDia == 31)) {
-        cadaEspaco.className = cadaEspaco.className + " holiday";
+        cadaEspaco.className = cadaEspaco.className + " holiday";        
     }
     if ((cadaDia == 4) || (cadaDia == 11) || (cadaDia == 18) || (cadaDia == 25)) {
         cadaEspaco.className = cadaEspaco.className + " friday";
@@ -36,8 +36,23 @@ function createDaysOfTheWeek() {
   function feriados (){
       let botaoFeriados = document.createElement("button");
       botaoFeriados.id = "btn-holiday";
-      botaoFeriados.innerHTML = "Feriados"; 
+      botaoFeriados.innerHTML = "Feriados";       
       buttonLocal.appendChild(botaoFeriados);    
   }
   feriados();
 
+  let diasFeriadoLocal = document.querySelectorAll(".holiday");
+  
+  function mudaCorElemento () {    
+    if (diasFeriadoLocal[0].style.backgroundColor == ""){
+        for (let i = 0; i<diasFeriadoLocal.length; i +=1){
+            diasFeriadoLocal[i].style.backgroundColor = "Yellow";
+        }
+    } 
+    else {
+        for (let i = 0; i<diasFeriadoLocal.length; i +=1){
+            diasFeriadoLocal[i].style.backgroundColor = "";
+        }
+    }
+  }
+  buttonLocal.addEventListener("click", mudaCorElemento);
