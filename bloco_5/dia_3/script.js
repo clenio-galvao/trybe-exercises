@@ -32,7 +32,7 @@ function createDaysOfTheWeek() {
   }
 
   let buttonLocal = document.querySelector(".buttons-container");
-
+  
   function feriados (){
       let botaoFeriados = document.createElement("button");
       botaoFeriados.id = "btn-holiday";
@@ -40,10 +40,10 @@ function createDaysOfTheWeek() {
       buttonLocal.appendChild(botaoFeriados);    
   }
   feriados();
-
+  let buttonFeriadosLocal = document.getElementById("btn-holiday");
   let diasFeriadoLocal = document.querySelectorAll(".holiday");
   
-  function mudaCorElemento () {    
+  function mudaCorElemento () {     
     if (diasFeriadoLocal[0].style.backgroundColor == ""){
         for (let i = 0; i<diasFeriadoLocal.length; i +=1){
             diasFeriadoLocal[i].style.backgroundColor = "Yellow";
@@ -55,4 +55,30 @@ function createDaysOfTheWeek() {
         }
     }
   }
-  buttonLocal.addEventListener("click", mudaCorElemento);
+
+  buttonFeriadosLocal.addEventListener("click", mudaCorElemento);
+
+function sextou(){
+    let botaoSextou = document.createElement("button");
+    botaoSextou.id = "btn-fryday";
+    botaoSextou.innerHTML = "Sexta-Feira";       
+    buttonLocal.appendChild(botaoSextou);    
+}
+sextou();
+let buttonSextaLocal = document.getElementById("btn-fryday");
+let diasSextouLocal = document.querySelectorAll(".friday");
+let diasSexta = [4, 11, 18, 25];
+function mudaTextoElemento () {     
+    if (diasSextouLocal[0].innerHTML == "4"){
+        for (let i = 0; i<diasSextouLocal.length; i +=1){
+            diasSextouLocal[i].innerHTML = "Só alegria";
+        }
+} 
+    else {
+        for (let i = 0; i<diasSextouLocal.length; i +=1){
+            diasSextouLocal[i].innerHTML = diasSexta[i];
+        }
+    }
+}
+
+buttonSextaLocal.addEventListener("click", mudaTextoElemento);
