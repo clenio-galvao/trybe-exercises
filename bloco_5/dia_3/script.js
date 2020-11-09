@@ -33,14 +33,16 @@ function createDaysOfTheWeek() {
 
   let buttonLocal = document.querySelector(".buttons-container");
   
-  function feriados (){
+  function createButton (nome, id){
       let botaoFeriados = document.createElement("button");
-      botaoFeriados.id = "btn-holiday";
-      botaoFeriados.innerHTML = "Feriados";       
+      botaoFeriados.id = id;
+      botaoFeriados.innerHTML = nome;       
       buttonLocal.appendChild(botaoFeriados);    
   }
-  feriados();
-  let buttonFeriadosLocal = document.getElementById("btn-holiday");
+  createButton("Feriados", "btn-holiday");
+  createButton("Sexta-Feira", "btn-fryday");
+
+  let buttonFeriadosLocal = document.querySelector("#btn-holiday");
   let diasFeriadoLocal = document.querySelectorAll(".holiday");
   
   function mudaCorElemento () {     
@@ -58,24 +60,15 @@ function createDaysOfTheWeek() {
 
   buttonFeriadosLocal.addEventListener("click", mudaCorElemento);
 
-function sextou(){
-    let botaoSextou = document.createElement("button");
-    botaoSextou.id = "btn-fryday";
-    botaoSextou.innerHTML = "Sexta-Feira";       
-    buttonLocal.appendChild(botaoSextou);    
-}
-sextou();
 let buttonSextaLocal = document.getElementById("btn-fryday");
 let diasSextouLocal = document.querySelectorAll(".friday");
 let diasSexta = [4, 11, 18, 25];
 function mudaTextoElemento () {     
-    if (diasSextouLocal[0].innerHTML == "4"){
-        for (let i = 0; i<diasSextouLocal.length; i +=1){
+    for (let i = 0; i<diasSextouLocal.length; i +=1){
+        if (diasSextouLocal[i].innerHTML == diasSexta[i]){                                                                    
             diasSextouLocal[i].innerHTML = "Só alegria";
         }
-} 
-    else {
-        for (let i = 0; i<diasSextouLocal.length; i +=1){
+        else {
             diasSextouLocal[i].innerHTML = diasSexta[i];
         }
     }
