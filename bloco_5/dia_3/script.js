@@ -30,6 +30,7 @@ function createDaysOfTheWeek() {
     }
     daysLocal.appendChild(cadaEspaco);
   }
+  let listaDaysLocal = document.querySelectorAll(".day");
 
   let buttonLocal = document.querySelector(".buttons-container");
   
@@ -80,5 +81,12 @@ function mudaTextoElemento () {
         }
     }
 }
-
 buttonSextaLocal.addEventListener("click", mudaTextoElemento);
+
+function zoom(evento) {   
+    for (let i = 0; i < dezDaysList.length; i += 1) {
+        
+        evento.target.style.fontSize = '500%';      
+    }
+}
+daysLocal.addEventListener("mouseover", zoom);
