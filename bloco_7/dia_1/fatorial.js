@@ -13,11 +13,6 @@
 // }
 // console.log(fatorial(5));
 
-let fatorial = (num) => {
-  if(num==0) {
-      return 1;
-  }
-  return (num * fatorial (num-1) );
-}
+let fatorial = (num) => num > 1 ? (num * fatorial (num-1) ) : 1;
 
-console.log(fatorial(6)); // 720
+console.log(fatorial(5)); // 720
