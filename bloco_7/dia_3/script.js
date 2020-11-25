@@ -61,3 +61,39 @@ assert.notStrictEqual(arrayNovo3, [1, 2, 3, 4], 'arrayNovo não pode ser igual o
 // assert.deepStrictEqual(arrayNovo3, [1, 2, 3, 4], 'teve mudanças no array passado como parâmetro');
 assert.deepStrictEqual(arrayNovo4, [1, 2, 3, 4], 'o array não tem o número 5, não deveria ter erro');
 
+function myFizzBuzz(num) {
+  if (typeof num !== 'number') return false;
+  if (num % 3 === 0 && num % 5 === 0) return 'fizzbuzz';
+  if (num % 3 === 0) return 'fizz';
+  if (num % 5 === 0) return 'buzz';
+  return num;
+}
+
+// implemente seus testes aqui
+
+assert.strictEqual(myFizzBuzz(15), 'fizzbuzz');
+assert.strictEqual(myFizzBuzz(9), 'fizz');
+assert.strictEqual(myFizzBuzz(25), 'buzz');
+assert.strictEqual(myFizzBuzz(17), 17);
+assert.strictEqual(myFizzBuzz('this_is_not_a_number'), false);
+
+const obj1 = {
+  title: 'My Title',
+  description: 'My Description',
+};
+
+const obj2 = {
+  description: 'My Description',
+  title: 'My Title',
+};
+
+const obj3 = {
+  title: 'My Different Title',
+  description: 'My Description',
+};
+
+// implemente seus testes aqui
+
+assert.deepStrictEqual(obj1, obj2);
+assert.notDeepStrictEqual(obj1, obj3);
+assert.notDeepStrictEqual(obj2, obj3);
