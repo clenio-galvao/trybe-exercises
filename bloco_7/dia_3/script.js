@@ -25,6 +25,13 @@ function myRemove(arr, item) {
   }
   return newArr;
 }
-// console.log(myRemove([1, 2, 3, 4], 3))
+const arrayNovo = myRemove([1, 2, 3, 4], 3); 
+const arrayNovo2 = myRemove([1, 2, 3, 4], 5);
 // implemente seus testes aqui
-assert.equal(myRemove([1, 2, 3, 4], 3), [1, 2, 4], 'remover o número 3 do array');   
+// assert.strictEqual(arrayNovo, [1, 2, 4], 'remover o número 3 do array');   // erro, deveria ocorrer o contrário
+assert.notStrictEqual(arrayNovo, [1, 2, 3, 4], 'arrayNovo não pode ser o antigo')
+// assert.deepStrictEqual(arrayNovo, [1, 2, 3, 4], 'teve mudanças no array passado como parâmetro')
+// assert.strictEqual(arrayNovo2, [1, 2, 3, 4], 'o array não tem o número 5, não deveria ter erro') // erro, deveria ocorrer o contrário
+
+
+
