@@ -20,7 +20,7 @@ assert.throws(() => {
 });
 assert.throws(() => {
   sum(4, '5');
-}, /^Error: parameters must be numbers$/); 
+}, /Error: parameters must be numbers/); 
 
 function myRemove(arr, item) {
   let newArr = [];
@@ -34,11 +34,10 @@ function myRemove(arr, item) {
 const arrayNovo = myRemove([1, 2, 3, 4], 3); 
 const arrayNovo2 = myRemove([1, 2, 3, 4], 5);
 // implemente seus testes aqui
-assert.deepStrictEqual(arrayNovo, [1, 2, 4]);   // pq tem que colocar o deep??
+assert.deepStrictEqual(arrayNovo, [1, 2, 4]);
 assert.notStrictEqual(arrayNovo, [1, 2, 3, 4], 'arrayNovo não pode ser o antigo')
 // assert.deepStrictEqual(arrayNovo, [1, 2, 3, 4], 'teve mudanças no array passado como parâmetro') // passou mas precisa ficar comentada
-assert.deepStrictEqual(arrayNovo2, [1, 2, 3, 4], 'o array não tem o número 5, não deveria ter erro') // pq tem que colocar o deep?
-
+assert.deepStrictEqual(arrayNovo2, [1, 2, 3, 4], 'o array não tem o número 5, não deveria ter erro') 
 
 function myRemoveWithoutCopy(arr, item) {
   for (let i = 0, len = arr.length; i < len; i += 1) {
