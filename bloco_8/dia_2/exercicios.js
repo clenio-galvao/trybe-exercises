@@ -227,4 +227,18 @@ function fantasyOrScienceFictionAuthors() {
 
 assert.deepEqual(fantasyOrScienceFictionAuthors(), expected_result);
 
+// 6. Crie um array com o nome de todos os livros com mais de 60 anos de publicação.
 
+expected_result = [];
+expected_result = [
+  'O Senhor dos Anéis',
+  'Fundação',
+  'O Chamado de Cthulhu'
+]
+
+function oldBooksNames() {
+  const oldBookName = books.filter((book) => (2020 - book.releaseYear) > 60).map((book) => book.name);
+  return oldBookName;
+}
+
+assert.deepEqual(oldBooksNames(), expected_result);
