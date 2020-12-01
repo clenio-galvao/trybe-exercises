@@ -209,3 +209,22 @@ function oldBooks() {
 
 assert.deepEqual(oldBooks(), expected_result);
 
+// 5. Crie um array em ordem alfabética apenas com os nomes de todas as pessoas autoras de ficção científica ou fantasia.
+
+expected_result = [];
+expected_result = [
+  'Frank Herbert',
+  'George R. R. Martin',
+  'Isaac Asimov',
+  'J. R. R. Tolkien'
+]
+
+function fantasyOrScienceFictionAuthors() {
+  const authorFantasyOrScience = books.filter((book) => (book.genre === 'Ficção Científica') || (book.genre === 'Fantasia')).map((book) => book.author.name).sort();
+
+  return authorFantasyOrScience;
+}
+
+assert.deepEqual(fantasyOrScienceFictionAuthors(), expected_result);
+
+
