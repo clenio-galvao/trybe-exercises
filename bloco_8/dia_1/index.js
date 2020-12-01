@@ -1,4 +1,5 @@
 const assert = require('assert');
+const { Console } = require('console');
 
 const books = [
   {
@@ -124,4 +125,40 @@ assert.deepEqual(booksOrderedByReleaseYearDesc(), [
 ]);
 
 // Faça uma função que retorne true , se todas as pessoas autoras nasceram no século XX, ou false , caso contrário.
+let expectedResult = false
 
+function everyoneWasBornOnSecXX() {
+  const result = books.every(element => Math.ceil(element.author.birthYear/100) === 20); 
+  return result;
+}
+
+assert.equal(everyoneWasBornOnSecXX(), expectedResult);
+
+// Faça uma função que retorne true , se algum livro foi lançado na década de 80, e false , caso contrário.
+
+expectedResult = true;
+
+function someBookWasReleaseOnThe80s() {
+  const result = books.some(element => ((element.releaseYear - 1900) > 80) && ((element.releaseYear - 1900) < 90));
+  return result;
+}
+
+assert.equal(someBookWasReleaseOnThe80s(), expectedResult);
+
+//Faça uma função que retorne true , caso nenhum author tenha nascido no mesmo ano, e false , caso contrário.
+
+expectedResult = false;
+
+function authorUnique() {
+  const yearBirth = [];
+  books.forEach(element => yearBirth.push(element.author.birthYear));
+  yearBirth.sort((a, b) => a - b);
+  for (let index = 1; index < yearBirth.length; index += 1) {
+    if (yearBirth[index] === yearBirth[index - 1]) {
+      return false
+    }
+  }
+  return true;
+}
+
+assert.equal(authorUnique(), expectedResult);
