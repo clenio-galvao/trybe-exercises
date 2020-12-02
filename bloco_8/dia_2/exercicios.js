@@ -166,11 +166,7 @@ expected_result = [
  ]
  
  function fantasyOrScienceFiction() {
-   const fantasyOrScience = books.filter((book) => {
-     if ((book.genre === 'Ficção Científica') || (book.genre === 'Fantasia')) {
-       return book;
-     }
-   });
+   const fantasyOrScience = books.filter((book) => ((book.genre === 'Ficção Científica') || (book.genre === 'Fantasia')));
    return fantasyOrScience;
  }
  
@@ -249,12 +245,8 @@ expected_result = [];
 expected_result = 'O Senhor dos Anéis';
 
 function authorWith3DotsOnName() {
-  const bookName = books.filter((book) => {
-    if ((book.author.name[1] === '.') && (book.author.name[4] === '.') && (book.author.name[7] === '.')) {
-      return book;
-    }
-  }).map((book) => book.name);
-  return bookName[0];
+  const bookName = books.find((book) => ((book.author.name[1] === '.') && (book.author.name[4] === '.') && (book.author.name[7] === '.'))).name;
+  return bookName;
 }
 
 assert.deepEqual(authorWith3DotsOnName(), expected_result);
