@@ -111,3 +111,29 @@ function averageAge() {
 
 assert.strictEqual(averageAge(), expectedResult);
 
+// 4. Encontre o livro com o maior nome.
+expectedResult = {};
+expectedResult = {
+  author: {
+    birthYear: 1948,
+    name: 'George R. R. Martin'
+  },
+  genre: 'Fantasia',
+  id: 1,
+  name: 'As Crônicas de Gelo e Fogo',
+  releaseYear: 1991
+};
+
+function longestNamedBook() {
+  const bookBigName = books.reduce((acc, element) => {
+    if (acc.name.length < element.name.length) {
+      return element;
+    } else {
+      return acc;
+    }
+  });
+  return bookBigName;
+}
+
+assert.deepStrictEqual(longestNamedBook(), expectedResult);
+
