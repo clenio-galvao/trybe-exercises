@@ -137,3 +137,22 @@ function longestNamedBook() {
 
 assert.deepStrictEqual(longestNamedBook(), expectedResult);
 
+// 5. Dada o array de nomes, retorne a quantidade de vezes em que aparecem a letra a maiúscula ou minúscula.
+
+const names = [
+  'Aanemarie',  'Adervandes',   'Akifusa',
+  'Abegildo',   'Adicellia',    'Aladonata',
+  'Abeladerco', 'Adieidy',  'Alarucha',
+];
+
+
+function containsA() {
+  const len = names.reduce((acc, element) => {
+    return acc + element;
+  }).split('').filter(element => element === 'a' || element === 'A').length;
+  return len;
+}
+
+assert.deepStrictEqual(containsA(), 20);
+
+// 
