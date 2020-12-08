@@ -1,0 +1,70 @@
+body {
+    margin: 20px;
+}
+h1 {
+    font-size: 28px;
+}
+
+p {
+    font-size: 23px;
+}
+
+h2 {
+    font-size: 28px;
+}
+
+img {
+    max-width: 100%;
+}
+
+figure {
+    margin-bottom: 50px;
+}
+
+@media screen and (min-width: 800px) {
+    body {
+        background-color: grey;
+        font-size: 30px;
+        margin: 50px;
+    }
+
+    p{
+        max-width: 600px;
+    }
+
+    div {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    figure {
+        width: 38%;
+    }
+}
+
+@media screen and (min-width: 1100px) {
+    body {
+        background-color: lightsteelblue;
+        font-size: 40px;
+        margin: 80px;
+    }
+
+    div {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    figure {
+        width: 38%;
+    }
+
+    p{
+        max-width: 800px;
+    }
+}
+
+/*Crie uma nova media query no seu arquivo CSS usando a dimensão que você encontrou para telas grandes (por exemplo 1300px), e realize os seguintes ajustes dentro do breakpoint:
+Altere a cor de fundo;
+Ajuste o tamanho da fonte;
+Ajuste as margens da página;
+Adicione a propriedade max-width à página, para garantir que a largura das linhas não fique muito grande.*/
