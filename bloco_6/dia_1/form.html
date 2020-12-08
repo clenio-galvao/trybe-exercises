@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercícios dia 1 bloco 6</title>
+</head>
+<body>
+    <h1>Preencha o formulário abaixo - Currículo Resumido</h1>
+    <form action="" method="GET" id="formulario">
+        <fieldset>
+            <legend>Cadastro</legend>
+            <label for="input-name">Nome completo: 
+                <input type="text" name="name" id="input-name" maxlength="40" required>
+            </label><br>
+            <label for="input-email">E-mail:
+                <input type="email" name="email" id="input-email" maxlength="50" required>
+            </label><br>
+            <label for="input-cpf">CPF (apenas números)
+                <input type="texto" name="CPF" id="input-cpf" maxlength="11" required>
+            </label><br>
+            <label for="input-endereco">Endereço:
+                <input type="texto" name="rua" id="input-endereco" maxlength="200" required>
+            </label><br>
+            <label for="input-cidade">Cidade:
+                <input type="texto" name="cidade" id="input-cidade" maxlength="28" required>
+            </label><br>
+            <label for="input-estado">Estado:
+                <select id="input-estado" name="estado" required></select>
+            </label><br>
+            <p>Tipo:</p>
+            <label for="input-apto">Apartamento 
+                <input type="radio" name="tipo" id="input-apto" value="Apartamento">
+            </label><br>
+            <label for="input-casa">Casa  
+                <input type="radio" name="tipo" id="input-casa" value="Casas">
+            </label><br>
+        </fieldset>
+        <fieldset>
+            <legend>Resumo do currículo</legend>
+            <textarea name="curriculo" id="text-curriculo" maxlength="1000" cols="85" rows="10" placeholder="Resuma sua experiência mais recente" required></textarea><br>
+            <label for="input-cargo">Cargo: 
+                <input type="text" id="input-cargo" name="cargo" maxlength="40" required>
+            </label><br>
+            <label for="input-descricao">Descriçao do Cargo: 
+                <input type="text" id="input-descricao" name="desCargo" maxlength="500" required>
+            </label><br>
+            <label for="input-date">Data de início: 
+                <input type="date" id="input-date" name="dataInicio" required>
+            </label>
+        </fieldset>
+        <button id="interrompe-button" onclick="interrompe();">Interromper Formulário</button>
+        <button type="submit">Enviar</button>
+        <button type="reset">Apagar tudo</button>
+    </form>    
+    <script src="script.js"></script>
+</body>
+</html>
