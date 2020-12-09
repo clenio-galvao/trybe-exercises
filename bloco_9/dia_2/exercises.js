@@ -17,6 +17,7 @@ const promise = new Promise((resolve, reject) => {
     if (redArray > 0) {
       return resolve(redArray);
     }
+    reject();
   })
   .then(number => console.log(number))
   .catch(() => 'deu ruim');
