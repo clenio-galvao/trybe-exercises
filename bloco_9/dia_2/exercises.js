@@ -11,7 +11,16 @@ const promise = new Promise((resolve, reject) => {
   }
   reject(redux);
 })
-.then(msg => console.log(msg))
+.then(array => {
+  const promise = new Promise ((resolve, reject) => {
+    const redArray = array.reduce((acc, ele) => acc + ele);
+    if (redArray > 0) {
+      return resolve(redArray);
+    }
+  })
+  .then(number => console.log(number))
+  .catch(() => 'deu ruim');
+})
 .catch(() => console.log(`É mais de oito mil! Essa promise deve estar quebrada!`));
 //   if (number > 10 || number <= 5) {
 //     return reject(number);
