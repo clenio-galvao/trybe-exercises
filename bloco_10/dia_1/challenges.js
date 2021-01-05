@@ -166,20 +166,18 @@ function decode(string) {
 // Desafio 10
 function techList(array, name) {
   array = array.sort();
-  if ((array.length == 0) || (array[0]=="") || (array[0]==" ")) {
-    array = 'Vazio!';
+  if ((array.length === 0) || (array[0] === "") || (array[0] === " ")) {
+    return 'Vazio!';
   } 
   else {
-    let aux = '';
-    for (let i = 0; i < array.length; i+=1) {
-      aux = array[i];   
-      array[i] = {
-        tech: aux,
+    const newArray = array.map((element) => (
+      {
+        tech: element,
         name: name
       }
-    }
+    ));
+    return newArray;
   }
-  return array;
 }
 
 // Desafio 11
@@ -233,14 +231,15 @@ function triangleCheck(lineA, lineB, lineC) {
 
 // Desafio 13
 function hydrate(string) {
-  // utilizamos uma solução do site: https://stackoverflow.com/questions/1623221/how-to-find-a-number-in-a-string-using-javascript/30160994
-  let inclui = /[\d\+]+/g;  
+  // utilizamos uma solução do site: https://stackoverflow.com/questions/1623221/how-to-find-a-number-in-a-string-using-javascript/30160994 MODIFICADA PARA NOSSO ENTENDEDIMENTO
+  let inclui = /\d+/g;  
   let matches = string.match(inclui);
+  console.log(matches);
   let soma = 0;
-  for (let i = 0; i<matches.length; i+=1){
+  for (let i = 0; i < matches.length; i += 1) {
     soma += parseInt(matches[i], 10);
   }
-  if (soma == 1){
+  if (soma === 1){
     return `${soma} copo de água`;
   } 
   else {
