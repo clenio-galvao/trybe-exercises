@@ -54,4 +54,22 @@ const getAnimal = (name) => (
   findAnimalsByName(name).then(list => list)
 );
 
-module.exports = {uppercase, findUserById, getUserName, getRepos, findAnimalsByName, getAnimal};
+const findAnimalsByAge = (age) => (
+  new Promise((resolve, reject) => {
+    setTimeout(() => {
+      const arrayAnimals = Animals.find((animal) => animal.age === age);
+      if (arrayAnimals) {
+        return resolve(arrayAnimals);
+      }
+
+      return reject({ error: 'Nenhum animal com essa idade!' });
+    }, 100);
+  })
+);
+console.log(findAnimalsByAge(1));
+
+const getAnimalAge = (age) => (
+  findAnimalsByAge(age).then(list => list)
+);
+
+module.exports = {uppercase, findUserById, getUserName, getRepos, getAnimalAge, getAnimal};

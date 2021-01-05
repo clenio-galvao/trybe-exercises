@@ -1,4 +1,4 @@
-const {uppercase, getUserName, getRepos, getAnimal} = require('./exercicios10-2');
+const {uppercase, getUserName, getRepos, getAnimal, getAnimalAge} = require('./exercicios10-2');
 
 test('se a callback de função uppercase, que transforma as letras de uma palavra em letras maiúsculas', () => {
   const callback = (data) => {
@@ -72,3 +72,20 @@ describe('Testando promise - findAnimalByName', () => {
     });
   });
 });
+
+describe('Testa nova funcionalidade para buscar pela idade dos animais', () => {
+  test('Retorne o objeto do animal', () => {
+    expect.assertions(1);
+    return getAnimalAge(1).then(animal => {
+      expect(animal).toEqual({ name: 'Dorminhoco', age: 1, type: 'Dog' });
+    });
+  });
+  test('Retorna um erro', () => {
+    expect.assertions(1);
+    return getAnimalAge(3).catch(error => {
+      expect(error).toEqual({ error: 'Nenhum animal com essa idade!' })
+    });
+  });
+});
+
+//2. Adicione uma nova funcionalidade para buscar pela idade dos animais. O retorno deve ser um array de objetos, mas, caso não ache nenhum, retorne uma mensagem de erro. Escreva tanto a função como o seu teste. findAnimalsByAge
