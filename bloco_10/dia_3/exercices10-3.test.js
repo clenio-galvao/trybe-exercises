@@ -57,52 +57,56 @@ describe('resolve exercício 3', () => {
   });
 });
 // 4- Dentro de um mesmo arquivo, crie três funções. A primeira deve receber uma string e retorná-la em caixa alta. A segunda deve também receber uma string e retornar só a primeira letra. A terceira deve receber duas strings e concatená-las. Faça o mock do arquivo. Faça uma nova implementação para a primeira função, mas agora ela deve retornar a string em caixa baixa. Para a segunda função, uma nova implementação deve retornar a última letra de uma string. A terceira deve receber três strings e concatená-las.
+// console.log(functions.stringUp('aaaa'));
 
-describe('resolve exercício 4', () => {
-  test('resolve exercício 4', () => {
-    functions.stringUp = jest.fn().mockImplementation(str => str.toLowerCase());
-    functions.stringFrst = jest.fn().mockImplementation((str) => {
-      const len = str.length;
-      return str[len - 1];
-    });
-    functions.stringConcat = jest.fn().mockImplementation((str1, str2, str3) => str1.concat(str2, str3));
 
-    expect(functions.stringUp).toHaveBeenCalledTimes(0);
-    expect(functions.stringUp('AAAA')).toBe('aaaa');
-    expect(functions.stringUp).toHaveBeenCalled();
-    expect(functions.stringUp).toHaveBeenCalledTimes(1);
+it('Muda stringUp', () => {
+  let mockStringUp = jest.spyOn(functions, 'stringUp')
+    .mockImplementation(str => str.toLowerCase());
 
-    expect(functions.stringFrst).toHaveBeenCalledTimes(0);
-    expect(functions.stringFrst('cabeça')).toBe('a');
-    expect(functions.stringFrst).toHaveBeenCalled();
-    expect(functions.stringFrst).toHaveBeenCalledTimes(1);
-
-    expect(functions.stringConcat).toHaveBeenCalledTimes(0);
-    expect(functions.stringConcat('cabeça ', 'olho ', 'orelha')).toBe('cabeça olho orelha');
-    expect(functions.stringConcat).toHaveBeenCalled();
-    expect(functions.stringConcat).toHaveBeenCalledTimes(1);
-  });
+  expect(mockStringUp).toHaveBeenCalledTimes(0);
+  expect(mockStringUp('AAAA')).toBe('aaaa');
+  expect(mockStringUp).toHaveBeenCalled();
+  expect(mockStringUp).toHaveBeenCalledTimes(1);
 });
 
-// 5- Utilizando as mesmas funções do exercício anterior, repita a implementação para a primeira função. Após repetir a implementação, restaure a implementação original e crie os testes necessários para validar.
-
-describe('resolve exercício 5', () => {
-  test('resolve exercício 5', () => {
-    functions.stringUp.mockReset();
-    console.log(functions.stringUp('aaaa'));
-    let mockStringUp = jest.spyOn(functions, 'stringUp');
-    console.log(mockStringUp('aaaa'));
-
-    expect(mockStringUp).toHaveBeenCalledTimes(2);
-    expect(mockStringUp('AAAA')).toBe('aaaa');
-    expect(mockStringUp).toHaveBeenCalled();
-    expect(mockStringUp).toHaveBeenCalledTimes(3);
-
-    mockStringUp.mockRestore();
-
-    expect(mockStringUp).toHaveBeenCalledTimes(1);
-    expect(mockStringUp('aaaa')).toBe('AAAA');
-    expect(mockStringUp).toHaveBeenCalled();
-    expect(mockStringUp).toHaveBeenCalledTimes(2);
+it('Muda stringFrst', () => {
+  functions.stringFrst = jest.fn().mockImplementation((str) => {
+    const len = str.length;
+    return str[len - 1];
   });
+
+  expect(functions.stringFrst).toHaveBeenCalledTimes(0);
+  expect(functions.stringFrst('cabeça')).toBe('a');
+  expect(functions.stringFrst).toHaveBeenCalled();
+  expect(functions.stringFrst).toHaveBeenCalledTimes(1);
+});
+
+it('Muda string', () => {
+  functions.stringConcat = jest.fn().mockImplementation((str1, str2, str3) => str1.concat(str2, str3));
+
+  expect(functions.stringConcat).toHaveBeenCalledTimes(0);
+  expect(functions.stringConcat('cabeça ', 'olho ', 'orelha')).toBe('cabeça olho orelha');
+  expect(functions.stringConcat).toHaveBeenCalled();
+  expect(functions.stringConcat).toHaveBeenCalledTimes(1);
+});
+
+
+// 5- Utilizando as mesmas funções do exercício anterior, repita a implementação para a primeira função. Após repetir a implementação, restaure a implementação original e crie os testes necessários para validar.
+// console.log(functions.stringUp('aaaa'));
+
+it('resolve exercício 5', () => {
+  functions.stringUp.mockRestore();
+
+  let mockStringUp = jest.spyOn(functions, 'stringUp')
+    .mockImplementation(str => str.toLowerCase());
+
+  expect(mockStringUp).toHaveBeenCalledTimes(0);
+  expect(mockStringUp('AAAA')).toBe('aaaa');
+  expect(mockStringUp).toHaveBeenCalled();
+  expect(mockStringUp).toHaveBeenCalledTimes(1);
+
+  functions.stringUp.mockRestore();
+
+  expect(functions.stringUp('aaaa')).toBe('AAAA');
 });
