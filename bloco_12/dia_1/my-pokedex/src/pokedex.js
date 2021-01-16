@@ -1,6 +1,9 @@
 import React from 'react';
 import { pokemons } from './data';
 import Pokemon from './Pokemon';
+import Button from './Button';
+
+import './pokedex.css';
 
 class Pokedex extends React.Component {
   constructor() {
@@ -34,21 +37,35 @@ class Pokedex extends React.Component {
     ));
   }
 
+  filtrarClasses() {
+    const pokTypes = pokemons.map(element => element.type)
+    .sort()
+    .map((ele, index) => {
+      if (index > 0) {
+       if (ele !== ele[index-1]) {
+        return ele
+       }
+      }
+      return ele;      
+    });
+    console.log(pokTypes)
+    return pokTypes   
+  }
+
   botaoPassar() {
     this.setState((anterior, _props) => this.state.filtredPokemons.length !== anterior.pokemonInd + 1 ? ({pokemonInd: anterior.pokemonInd + 1}) : ({pokemonInd: 0}));
   }
 
   render() {
-    
+   
     return (
       <div>
         <div className="pokedex">
           <Pokemon pokemonGood={this.state.filtredPokemons[this.state.pokemonInd]} />
         </div>
         <div>
-        <button onClick={this.botaoAll}>All</button>
-        <button onClick={this.botaoFiltrar} name="Fire">Fire</button>
-        <button onClick={this.botaoFiltrar} name="Psychic">Psychic</button>
+          <button onClick={this.botaoAll}>All</button>
+          {this.filtrarClasses().map(elem => <Button onClick={this.botaoFiltrar} type={elem}/>)}
         </div>
         <button onClick={this.botaoPassar}>Mude o Pokemon</button>
       </div>
