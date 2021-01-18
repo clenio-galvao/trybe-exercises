@@ -10,15 +10,27 @@ class FormularioCadastro extends React.Component {
       nome: '',
       email: '',
       cpf: '',
-
+      endereco: "",
     }
   }
 
   alterarAoDigitar (event) {
-    this.setState({[event.target.name]: event.target.value});
     if (event.target.name === 'nome') {
-      this.setState({nome: event.target.value.toUpperCase()});
+      return this.setState({nome: event.target.value.toUpperCase()});
     }
+  
+    else if (event.target.name === 'endereco') {
+      const pattern = /^[a-zA-Z0-9, .]+$/;
+      const digitado = event.target.value;
+      
+      if (digitado.match(pattern)) {
+        return this.setState({[event.target.name]: event.target.value});
+      }
+    } else {
+      return this.setState({[event.target.name]: event.target.value});
+    }
+    
+
   }
 
   render() {
@@ -36,6 +48,10 @@ class FormularioCadastro extends React.Component {
       <label>
         <div>CPF</div> 
         <input type="text" name="cpf" placeholder="apenas números" value={this.state.cpf} onChange={this.alterarAoDigitar} maxLength={11} required/>
+      </label>
+      <label>
+        <div>Endereço</div> 
+        <input type="text" name="endereco" placeholder="não digite caracteres especiais" value={this.state.endereco} onChange={this.alterarAoDigitar} maxLength={200} required/>
       </label>
     </form>
     );
