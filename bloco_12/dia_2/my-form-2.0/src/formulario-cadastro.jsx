@@ -9,6 +9,8 @@ class FormularioCadastro extends React.Component {
     this.state = {
       nome: '',
       email: '',
+      cpf: '',
+
     }
   }
 
@@ -30,6 +32,10 @@ class FormularioCadastro extends React.Component {
       <label>
         <div>E-mail</div> 
         <input type="text" name="email" placeholder="nome@server.com" value={this.state.email} onChange={this.alterarAoDigitar} maxLength={50} required/>
+      </label>
+      <label>
+        <div>CPF</div> 
+        <input type="text" name="cpf" placeholder="apenas números" value={this.state.cpf} onChange={this.alterarAoDigitar} maxLength={11} required/>
       </label>
     </form>
     );
