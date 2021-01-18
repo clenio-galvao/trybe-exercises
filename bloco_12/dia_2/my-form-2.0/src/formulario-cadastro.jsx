@@ -1,5 +1,7 @@
 import React from 'react';
 
+import Estados from './data'
+
 class FormularioCadastro extends React.Component {
   constructor() {
     super()
@@ -13,6 +15,7 @@ class FormularioCadastro extends React.Component {
       cpf: '',
       endereco: '',
       cidade: '',
+      estado: 'Estado',
     }
   }
 
@@ -28,9 +31,10 @@ class FormularioCadastro extends React.Component {
       if (digitado.match(pattern)) {
         return this.setState({[event.target.name]: event.target.value});
       }
-    } else {
-      return this.setState({[event.target.name]: event.target.value});
     }
+
+    return this.setState({[event.target.name]: event.target.value});
+
   }
 
   comecaComNumero(event) {
@@ -63,6 +67,11 @@ class FormularioCadastro extends React.Component {
       </label>
       <label>
         <input type="text" name="cidade" placeholder="cidade" value={this.state.cidade} onBlur={this.comecaComNumero} onChange={this.alterarAoDigitar} maxLength={28} required/>
+      </label>
+      <label>
+        <select name="estado" value={this.state.estado}  onChange={this.alterarAoDigitar}>
+          {Estados.map(element => <option value={element.replace(/\s/g, '')}>{element}</option>)}
+        </select>
       </label>
     </form>
     );
