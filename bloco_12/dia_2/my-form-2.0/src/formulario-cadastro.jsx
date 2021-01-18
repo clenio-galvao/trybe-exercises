@@ -16,6 +16,7 @@ class FormularioCadastro extends React.Component {
       endereco: '',
       cidade: '',
       estado: 'Estado',
+      tipo: 'Apartamento',
     }
   }
 
@@ -73,6 +74,10 @@ class FormularioCadastro extends React.Component {
           {Estados.map(element => <option value={element.replace(/\s/g, '')}>{element}</option>)}
         </select>
       </label>
+      <div>
+        <input onChange={this.alterarAoDigitar} type="radio" value="Apartamento" name="tipo" checked={this.state.tipo === "Apartamento"} /> Apartamento
+        <input onChange={this.alterarAoDigitar} type="radio" value="Casa" name="tipo" checked={this.state.tipo === "Casa"} /> Casa
+      </div>
     </form>
     );
   }
