@@ -5,12 +5,14 @@ class FormularioCadastro extends React.Component {
     super()
 
     this.alterarAoDigitar = this.alterarAoDigitar.bind(this);
+    this.comecaComNumero = this.comecaComNumero.bind(this);
 
     this.state = {
       nome: '',
       email: '',
       cpf: '',
-      endereco: "",
+      endereco: '',
+      cidade: '',
     }
   }
 
@@ -29,8 +31,14 @@ class FormularioCadastro extends React.Component {
     } else {
       return this.setState({[event.target.name]: event.target.value});
     }
-    
+  }
 
+  comecaComNumero(event) {
+    const pattern = /^[0-9]/;
+    const digitado = event.target.value[0];
+    if (digitado.match(pattern)) {
+      return this.setState({cidade: ''});
+    }
   }
 
   render() {
@@ -51,7 +59,10 @@ class FormularioCadastro extends React.Component {
       </label>
       <label>
         <div>Endereço</div> 
-        <input type="text" name="endereco" placeholder="não digite caracteres especiais" value={this.state.endereco} onChange={this.alterarAoDigitar} maxLength={200} required/>
+        <input type="text" name="endereco" placeholder="rua e número" value={this.state.endereco} onChange={this.alterarAoDigitar} maxLength={200} required/>
+      </label>
+      <label>
+        <input type="text" name="cidade" placeholder="cidade" value={this.state.cidade} onBlur={this.comecaComNumero} onChange={this.alterarAoDigitar} maxLength={28} required/>
       </label>
     </form>
     );
