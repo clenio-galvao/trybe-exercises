@@ -77,7 +77,7 @@ class FormularioCadastro extends React.Component {
       <div>
         <input onChange={this.alterarAoDigitar} type="radio" value="Apartamento" name="tipo" checked={this.state.tipo === "Apartamento"} /> Apartamento
         <input onChange={this.alterarAoDigitar} type="radio" value="Casa" name="tipo" checked={this.state.tipo === "Casa"} /> Casa
-      </div>
+      </div><br/><br/><br/>
     </form>
     );
   }

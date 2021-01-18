@@ -1,9 +1,14 @@
 import FormularioCadastro from './formulario-cadastro.jsx';
+import FormularioCurriculo from './formulario-curriculo.jsx';
 import './App.css';
 
 function App() {
   return (
-    <FormularioCadastro />
+    <main>
+      <FormularioCadastro />
+
+      <FormularioCurriculo />
+    </main>
   );
 }
 
