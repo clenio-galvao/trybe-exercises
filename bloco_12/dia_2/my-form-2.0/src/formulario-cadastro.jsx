@@ -47,6 +47,7 @@ class FormularioCadastro extends React.Component {
   }
 
   render() {
+
     return (
     <form>
       <h1>Preencha o formulário abaixo:</h1>
